@@ -38,9 +38,9 @@ template <typename C0, typename C1, typename C2>
 class HanlderManager
 {
 public:
-    using EC0 = typename conditional<C0::type == E_0, C0, typename conditional<C1::type == E_0, C1, typename conditional<C2::type == E_0, C2, void>::type>::type>::type;
-    using EC1 = typename conditional<C0::type == E_1, C0, typename conditional<C1::type == E_1, C1, typename conditional<C2::type == E_1, C2, void>::type>::type>::type;
-    using EC2 = typename conditional<C0::type == E_2, C0, typename conditional<C1::type == E_2, C1, typename conditional<C2::type == E_2, C2, void>::type>::type>::type;
+    using EC0 = typename conditional<C0::type == E_0, C0, typename conditional<C1::type == E_0, C1, typename conditional<C2::type == E_0, C2, Base>::type>::type>::type;
+    using EC1 = typename conditional<C0::type == E_1, C0, typename conditional<C1::type == E_1, C1, typename conditional<C2::type == E_1, C2, Base>::type>::type>::type;
+    using EC2 = typename conditional<C0::type == E_2, C0, typename conditional<C1::type == E_2, C1, typename conditional<C2::type == E_2, C2, Base>::type>::type>::type;
 
     static_assert(!is_same<EC0, void>::value, "EC0 TYPE ERROR");
     static_assert(!is_same<EC1, void>::value, "EC1 TYPE ERROR");
